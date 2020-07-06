@@ -4,18 +4,18 @@ import os
 
 from subprocess import check_call
 
+import uvicorn
+
 from fastapi import FastAPI, Depends, HTTPException, Request
-from peewee import fn
-
-import model
-import parser
-
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
+from peewee import fn
 
+import model
+import parser
 
 
 __dir__ = os.path.abspath(os.path.dirname(__file__))
@@ -195,6 +195,4 @@ async def goaccess(request: Request):
 
 
 if __name__ == '__main__':
-    import uvicorn
-
     uvicorn.run("main:app", host="0.0.0.0", port=2020, log_level="info")
