@@ -3,6 +3,7 @@
 import os
 
 from subprocess import check_call
+from multiprocessing import Process
 
 import uvicorn
 
@@ -180,7 +181,8 @@ async def get_item(
 
 @app.get("/update", dependencies=[Depends(get_db),Depends(get_current_username)])
 async def update():
-    check_call(parser.parse, os.path.join(__dir__, "access.log"))
+    p = Process(target=parser.parse, args=(os.path.join(__dir__, "access.log"),))
+    p.start()
     return "success"
 
 
