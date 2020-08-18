@@ -71,6 +71,8 @@
             <div class="row">
               <q-toggle v-model="details.with_date" label="With date" @input="getDetail()"/>
               <q-space />
+              <q-toggle v-model="details.with_refer" label="With refer" @input="getDetail()"/>
+              <q-space />
               <q-select
                 @input="val => { details.group_by = val ; getDetail()}"
                 v-model="details.group_by"
@@ -172,7 +174,8 @@ export default {
         loading: false,
         group_by: 'ip',
         groups: [],
-        with_date: false,
+        with_date: true,
+        with_refer: true,
         pagination: {
           sortBy: 'bytes',
           descending: false,
@@ -248,7 +251,8 @@ export default {
           sort_by: this.details.pagination.sortBy,
           desc: this.details.pagination.descending,
           by: this.details.group_by,
-          with_date: this.details.with_date
+          with_date: this.details.with_date,
+          with_refer: this.details.with_refer
         }
       }).then(response => {
         const data = response.data

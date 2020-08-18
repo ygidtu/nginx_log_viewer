@@ -76,7 +76,7 @@ class LogsDB(peewee.Model):
 
 LogsColumns = {
     "ip": LogsDB.ip, "time": LogsDB.time, "date": LogsDB.date,
-        "country": LogsDB.country, "city": LogsDB.city,
+    "country": LogsDB.country, "city": LogsDB.city,
     "method": LogsDB.method, "url": LogsDB.url,
     "refer": LogsDB.refer, "status": LogsDB.status,
     "byte": LogsDB.byte, "browser": LogsDB.browser,
@@ -125,6 +125,7 @@ class Bytes(BaseModel):
     city: Optional[str]
     bytes:int
     counts: int
+    refer: Optional[str]
 
     class Config:
         orm_mode = True

@@ -125,7 +125,7 @@ async def get_item(by: str):
 @app.get("/bytes/", response_model=model.AjaxBytes, dependencies=[Depends(get_db),Depends(get_current_username)])
 async def get_item(
     by: str, start: int = 1, 
-    length: int = 10, with_date: bool = False,
+    length: int = 10, with_date: bool = False, with_refer: bool = False,
     sort_by: str = "bytes", desc: bool = True
 ):
     if by not in model.LogsColumns.keys():
@@ -147,10 +147,15 @@ async def get_item(
         group_by.append(model.LogsDB.date)
         header.insert(1, "date")
     
+    if with_refer:
+        sel.append(model.LogsDB.refer)
+        group_by.append(model.LogsDB.refer)
+        header.insert(1, "refer")
+    
     if by == "ip":
         sel += [model.LogsDB.country, model.LogsDB.city]
-        header.insert(2, "country")
-        header.insert(3, "city")
+        header.insert(3, "country")
+        header.insert(4, "city")
 
     query = (model.LogsDB.select(*sel).group_by(*group_by))
 
