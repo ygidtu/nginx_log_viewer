@@ -54,7 +54,7 @@ db._state = PeeweeConnectionState()
 class LogsDB(peewee.Model):
     text = peewee.TextField(primary_key=True)
     ip = peewee.CharField(index=True)
-    country = peewee.CharField(index=True)
+    country = peewee.CharField(index=True, null=True)
     city = peewee.CharField(index=True, null=True, default="Unknown")
     time = peewee.DateTimeField(index=True)
     date = peewee.DateTimeField(index=True)
