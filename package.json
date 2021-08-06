@@ -10,25 +10,25 @@
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
-    "@quasar/extras": "^1.10.7",
+    "@quasar/extras": "^1.10.10",
     "axios": "^0.21.1",
-    "core-js": "^3.14.0",
+    "core-js": "^3.16.0",
     "date-format": "^3.0.0",
-    "quasar": "^1.15.20",
+    "quasar": "^2.0.3",
     "vue-aspect-ratio": "^0.1.1",
     "vue-filter-pretty-bytes": "^0.1.6"
   },
   "devDependencies": {
-    "@quasar/app": "^2.2.10",
+    "@quasar/app": "^3.0.4",
     "babel-eslint": "^10.1.0",
-    "eslint": "^7.28.0",
+    "eslint": "^7.32.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-loader": "^4.0.2",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
-    "eslint-plugin-vue": "^7.11.1"
+    "eslint-plugin-vue": "^7.15.1"
   },
   "browserslist": [
     "last 10 Chrome versions",
